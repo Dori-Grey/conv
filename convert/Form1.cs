@@ -9,6 +9,7 @@ namespace convert
     {
         Image file;
         Boolean opened = false;
+        Boolean opened2 = false;
 
         public Form1()
         {
@@ -33,6 +34,7 @@ namespace convert
                 Title = "Выберите файлы",
                 InitialDirectory = @"E:\"
             };
+            opened2 = true;
             dr.ShowDialog();
             string[] fil = dr.FileNames;
         }
@@ -54,9 +56,16 @@ namespace convert
                         MessageBox.Show("OK");
                     }
                 }
-                else
+                else if (opened2)
                 {
-                    MessageBox.Show("not found");
+                    if (saveFileDialog1.FileName.Substring(saveFileDialog1.FileName.Length - 3).ToLower() == "jpg")
+                    {
+                        //foreach (string f in file[]) {
+                        //    files[].Save(saveFileDialog1.FileNames, ImageFormat.Jpeg);
+                        //    MessageBox.Show("OK");
+                        //}
+                    }
+
                 }
             }
         }
